@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>代办事列表</title>
+</head>
+<body>
+<form id="customer_form" method="get" action="{{ url_for('addtodo.get_todo_list') }}">
+<table border="1" width="600" border="1" align="center">
+    <tr>
+        <td align="center" colspan="7">
+            ToDo List
+        </td>
+    </tr>
+    <tr>
+        <td width="25"><input type="checkbox" name="customer_check"></td>
+        <td align="center" width="75">ID</td>
+        <td align="center" width="75">类别</td>
+        <td align="center" width="500">标题</td>
+        <td align="center" width="500">内容</td>
+        <td align="center" width="500">级别</td>
+        <td align="center" width="500">创建时间</td>
+
+  {% for todo in get_list %}
+    <tr>
+        <td width="25">
+            <input type="checkbox" value="{{ todo.todolist_id  }}" name="todo_checkbox">
+        </td>
+        <td align="center" width="75">{{ todo.todolist_id }}</td>
+        <td width="500">{{ todo.category_id }}</td>
+        <td width="500">{{ todo.todolist_title }}</td>
+        <td width="500">{{ todo.todolist_content }}</td>
+        <td width="500">{{ todo.todolist_priority }}</td>
+        <td width="500">{{ todo.todolist_create_time }}</td>
+    </tr>
+  {% endfor %}
+    <tr>
+        <td align="center" colspan="7">
+            <button name="add_category" type="submit" formaction="/add_category" formmethod="get">新增类别</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+             <button name="add_category" type="submit" formaction="/category_list" formmethod="get">类别列表</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <button name="edit" type="submit" formaction="/update_todo">编辑</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="submit" form="customer_form" formaction="/get_todo_list" formmethod="post">删除</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <button name="add_todo" type="submit" formaction="/todo">添加代办事</button>
+        </td>
+    </tr>
+</table>
+</form>
+</body>
+</html>

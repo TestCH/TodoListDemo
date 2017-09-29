@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>类别列表</title>
+</head>
+<body>
+<form id="customer_form" method="get" action="{{ url_for('category.get_category_list') }}">
+<table border="1" width="600" border="1" align="center">
+    <tr>
+        <td align="center" colspan="3">
+            Category
+        </td>
+    </tr>
+    <tr>
+        <td width="25"><input type="checkbox" name="customer_check"></td>
+        <td align="center" width="75">类别ID</td>
+        <td align="center" width="500">类别名称</td>
+  {% for category in get_list %}
+    <tr>
+        <td width="25">
+            <input type="checkbox" value="{{ category.category_id  }}" name="customer_check">
+        </td>
+        <td align="center" width="75">{{ category.category_id }}</td>
+        <td width="500">{{ category.category_name }}</td>
+    </tr>
+  {% endfor %}
+    <tr>
+        <td align="center" colspan="3">
+            <button name="add_category" type="submit" formaction="/add_category" formmethod="get">新增类别</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <button name="edit" type="submit" formaction="/update_category">编辑</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="submit" form="customer_form" formaction="/category_list" formmethod="post">删除</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <button name="add_todo" type="submit" formaction="/todo">添加代办事</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <button name="add_todo" type="submit" formaction="/get_todo_list">代办事</button>
+        </td>
+    </tr>
+</table>
+</form>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AddToDo</title>
+</head>
+<body>
+<form method="post" action="{{ url_for('addtodo.add_todo') }}">
+<table border="1" width="600" border="1" align="center">
+    <tr>
+        <td align="center" colspan="2">
+            Add Agent
+        </td>
+  </tr>
+  <tr>
+    <td>类别名称：</td>
+    <td>
+         <select class="form-control" name="category" style="width:200px;">
+             <option value="0">选择类型：</option>
+                {% for category in category_list %}
+                    <option value="{{ category.category_id }}">{{ category.category_name }}</option>
+                {% endfor %}
+         </select>
+    </td>
+  </tr>
+    <tr>
+        <td>标题：</td>
+        <td>
+            <input id="title" name="title" style="width:200px;">
+        </td>
+    </tr>
+    <tr>
+    <td>内容：</td>
+    <td>
+        <textarea name="content" rows="3" cols="30" style="width:200px;"></textarea>
+    </td>
+  </tr>
+    <tr>
+    <td>级别：</td>
+    <td>
+        <select name="priority" style="width:200px;">
+        <option name ="height">高</option>
+        <option name ="general">一般</option>
+        <option name="low">低</option>
+        </select>
+    </td>
+    </tr>
+    <tr>
+        <td>创建时间：</td>
+        <td><input name="datetime" type="datetime" style="width:200px;"/></td>
+    </tr>
+  <tr>
+    <td align="center" colspan="2">
+        <button id="submit" name="submit" type="submit">提交</button>
+    </td>
+  </tr>
+</table>
+</form>
+</body>
+</html>

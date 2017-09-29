@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新增类别</title>
+    <link rel="stylesheet" href="static/css/create.css" type="text/css">
+</head>
+<body>
+<form method="post" action="{{ url_for('category.cate_category') }}">
+<table border="1" width="600" border="1" align="center">
+    <tr>
+        <td align="center" colspan="2">
+            Create New Category
+        </td>
+  </tr>
+  <tr>
+    <td>类别名称：</td>
+    <td>
+        <!--<textarea name="category" cols=40 rows=4></textarea>-->
+        <input id="category" name="category" style="width:400px;">
+    </td>
+  </tr>
+  <tr>
+    <td align="center" colspan="2">
+        <button id="category_list" name="category_list" type="submit" formaction="/category_list">类别列表</button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button id="submit" name="submit" type="submit" formaction="/category_list">提交</button>
+    </td>
+  </tr>
+</table>
+</form>
+</body>
+</html>
